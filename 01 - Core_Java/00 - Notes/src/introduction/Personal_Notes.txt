@@ -221,6 +221,8 @@ User <-Sees------ View <---------Updates
   Uses-> Controller -Manipulates-> Model
 
 ++++++++++++++++++++
+Multi Threading:
+++++++++++++++++++++
 => Benefits:
   - Higher throughput
   - Responsive applications [Illusion of multitasking]
@@ -250,3 +252,18 @@ An application thread can also experience starvation when it never gets CPU time
 
 => Misc.:
 All Java programs have at least one thread, known as the main thread, which is created by the Java Virtual Machine (JVM) at the program's start, when the main() method is invoked with the main thread.
+
+++++++++++++++++++++
+Links:
+++++++++++++++++++++
+- Serialization & Deserialization: https://www.geeksforgeeks.org/serialization-in-java/
+- Big Integer: https://www.geeksforgeeks.org/biginteger-class-in-java/
+- Big Decimal: https://www.geeksforgeeks.org/bigdecimal-class-java/
+- StringBuilder: https://www.geeksforgeeks.org/stringbuilder-class-in-java-with-examples/
+- Daemon Thread: https://www.geeksforgeeks.org/daemon-thread-java/
+- Thread Pool: https://www.geeksforgeeks.org/thread-pools-java/
+- Garbage Collector: https://data-flair.training/blogs/garbage-collection-in-java/
+- Finalize: https://www.geeksforgeeks.org/finalize-method-in-java-and-how-to-override-it/
+
+- Cohesion: https://www.geeksforgeeks.org/cohesion-in-java/
+- Coupling: https://www.geeksforgeeks.org/coupling-in-java/
