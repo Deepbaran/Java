@@ -1,0 +1,100 @@
+++++++++++++++
+JAVA:
+++++++++++++++
+-----------
+Concrete Class:
+-----------
+- A Concrete Class is a class that has implementation of all the methods of another Super class/Interface. Then the implementing class is called the Concrete Class of the implemented Class/Interface.
+- Interfaces are treated as APIs that the Concrete class needs to implement.
+
+-----------
+Marker Interface:
+-----------
+A marker interface is an interface that has no methods or constants inside it. It provides run-time type information about objects, so the compiler and JVM have additional information about the object. A marker interface is also called a tagging interface.
+
+-----------
+Dynamic Dispatcher:
+-----------
+Method overriding is one of the ways in which Java supports Runtime Polymorphism. Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time.
+
+++++++++++++++
+STREAM API:
+++++++++++++++
+- These streams are related to Collection Frameworks / (group of objects). These streams are very different from io stream, io streams are the sequence of data.
+
+- These streams help to process a group of objects or collections.
+
+- These streams was introduces in java 1.8 version.
+
+- Stream API basically perform bulk operations and process the objects of collection.
+
+- Streams reduce the code length.
+
+- stream(): Creates a stream object from a Collection or a group of objects.
+
+- collect(Collectors.to###()):  Collects the stream to make a Collection or group of objects out of the stream.
+
+- Collectors.to###(): This defines in which Collection or group of objects will the collect() method collect the stream.
+
+- get(): If we only have a single element in the stream then we can use get() instead of collect().
+
+- Predicate: Predicate means a boolean valued function. That means, it will only return true or false.
+
+- filter(predicate): It filters the current stream and creates a new stream where only the desired values are included. filter() takes a predicate and the predicate returns only a boolean value (either true or false). For each value in the stream, filter() will check the predicate. If the predicate returns true, then that value will be included in the filtered stream otherwise that value will not be included in the filtered stream.
+
+- forEach(): This method helps in traversing each value in the stream. Rather than passing the whole method, we can just the method reference to it too. If we pass a method reference, then forEach will apply the method on all the elements in the stream.
+
+- map(function): We can perform a opertion on each element using this method. map() returns a new stream, where all the updates values are stored. It does not need a predicate. It takes a function which will perform the operation and the returned updated values are included in the new stream.
+
+- min(): It returns the minimum number in the stream. We need to pass a comparator function, to tell it how to compare two elements in the stream to get the minimum element.
+
+- max(): It returns the maximum number in the stream. We need to pass a comparator function, to tell it how to compare two elements in the stream to get the maximum element. 
+
+- sorted(): Sorts the stream elements. We can pass a comparator to get a customized sorted stream.
+
+++++++++++++++++++++++++++++++
+Collection Framework:
+++++++++++++++++++++++++++++++
+--------------------------
+Comparator VS Comparable:
+--------------------------
+1. Comparable provides a single sorting sequence. In other words, we can sort the collection on the basis of a single element such as id, name, and price.
+	On the other hand, the Comparator provides multiple sorting sequences. In other words, we can sort the collection on the basis of multiple elements such as id, name, and price etc.
+	
+2. Comparable affects the original class, i.e., the actual class is modified.
+	On the other hand Comparator doesn't affect the original class, i.e., the actual class is not modified.
+	
+3. Comparable provides compareTo() method to sort elements.
+	On the other hand, Comparator provides compare() method to sort elements.
+	
+4. Comparable is present in java.lang package.
+	On the other hand, a Comparator is present in the java.util package.
+	
+5. We can sort the list elements of Comparable type by Collections.sort(List) method.
+	On the other hand, we can sort the list elements of Comparator type by Collections.sort(List, Comparator) method.
+
++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
