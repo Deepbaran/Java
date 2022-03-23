@@ -219,3 +219,34 @@ MVC Patterns:
 User <-Sees------ View <---------Updates
   |							 		|
   Uses-> Controller -Manipulates-> Model
+
+++++++++++++++++++++
+=> Benefits:
+  - Higher throughput
+  - Responsive applications [Illusion of multitasking]
+  - Efficient utilization of resources
+
+=> Problems: 
+  - It's usually very hard to find bugs
+  - Higher cost of code maintenance
+  - Increased utilization of system resources
+  - Programs may experience slowdown
+
+=> Thread Safety:
+If multiple threads can mutate the values of a class or function at the same time then that is not thread safe. If a class or a program has an immutable state then the class is necessarily thread-safe.
+
+=> Deadlock:
+Deadlocks occur when two or more threads aren't able to make any progress because the resource required by the first thread is held by the second and the resource required by the second thread is held by the first.
+
+=> Liveliness:
+Ability of a program or an application to execute in a timely manner is called liveness.
+
+=> Live-lock:
+A live-lock occurs when two threads continuously react in response to the actions by the other thread without making any real progress.
+
+=> Starvation:
+An application thread can also experience starvation when it never gets CPU time or access to shared resources. Other greedy threads continuously hog shared system resources not letting the starving thread make any progress.
+
+
+=> Misc.:
+All Java programs have at least one thread, known as the main thread, which is created by the Java Virtual Machine (JVM) at the program's start, when the main() method is invoked with the main thread.
