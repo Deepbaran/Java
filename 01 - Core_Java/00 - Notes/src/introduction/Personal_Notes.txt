@@ -27,6 +27,7 @@ Misc.:
 - DRY: Do not Repeat Yourself. Eliminate duplicate code.
 - A super code change should not break code in a sub class and vice-versa.
 - Composition allows us to change the behavior of an object at runtime. Behavior can change without side effects as the behavior isn't tied to the superclass or subclasses.
+- Cohesion is used to indicate the degree to which a class has a single, well-focused purpose. Coupling is all about how classes interact with each other, on the other hand cohesion focuses on how single class is designed. Higher the cohesiveness of the class, better is the OO design.
 
 -----------
 Design Patterns:
@@ -144,13 +145,13 @@ SOLID Principles:
 SRP:
 -----------
 Q. What is Single Responsibility Principle in solid principles?
-A: It states  that  “One class should have one and only one responsibility”
+A: It states  that  â€œOne class should have one and only one responsibilityâ€�
 Which specifically means - we should write, change, and maintain a class only for one purpose. 
 Change Class only when you need to change state of one particular object or instance 
 Example : POJOS follow SRP.
 Suppose we have Employee and Address Class, If we want to change the state of Employee then we do not need to modify the class Account and vice-versa.
 If you world have merged both as single POJO , then modification in one field for address (like state ) needs to modify and Whole POJO including Employee
-Worst Design - which don’t follow SRP  Hitting Database in POJO of Employee Class. That’s why we have service layer, DAP layer and Entities separated. 
+Worst Design - which donâ€™t follow SRP  Hitting Database in POJO of Employee Class. Thatâ€™s why we have service layer, DAP layer and Entities separated. 
 
 Q. Why is Single Responsibility Principle IMP?
 A: In Real world, Requirement changes and so does your code implementation to cater the changing requirement , 
@@ -164,13 +165,13 @@ So best practise says : Use layers in your application and break God classes int
 OCP:
 -----------
 Q. What is Open/Closed Principle in solid principles?
-A: It states  that  “Software components should be open for extension, but closed for modification”
-The term “Open for extension” means that we can extend and include extra functionalities in our code without altering or affecting our existing implementation.
-The term “Closed for modification” means that after we add the extra functionality, we should not modify the existing implementation.
+A: It states  that  â€œSoftware components should be open for extension, but closed for modificationâ€�
+The term â€œOpen for extensionâ€� means that we can extend and include extra functionalities in our code without altering or affecting our existing implementation.
+The term â€œClosed for modificationâ€� means that after we add the extra functionality, we should not modify the existing implementation.
 In real world, You must have noticed that you change something to cater a new requirement and some other functionality breaks because of your change. To prevent that we have this principle in hand. It s one of the most imp concept in in solid principles
 
 Q. How to implement Open/Closed Principle in solid principles?
-A: The application classes should be designed in such a way that whenever fellow developers want to change the flow of control in specific conditions in application, all they need to extend the class and override some functions and that’s it.
+A: The application classes should be designed in such a way that whenever fellow developers want to change the flow of control in specific conditions in application, all they need to extend the class and override some functions and thatâ€™s it.
 Example - created a pojo employee with id , name. now new functionality comes which says add Training location. your constructor will fail for employees who didnt do training. better extend employee class, name it Traineed employee then add constructor.
 
 -----------
@@ -252,18 +253,3 @@ An application thread can also experience starvation when it never gets CPU time
 
 => Misc.:
 All Java programs have at least one thread, known as the main thread, which is created by the Java Virtual Machine (JVM) at the program's start, when the main() method is invoked with the main thread.
-
-++++++++++++++++++++
-Links:
-++++++++++++++++++++
-- Serialization & Deserialization: https://www.geeksforgeeks.org/serialization-in-java/
-- Big Integer: https://www.geeksforgeeks.org/biginteger-class-in-java/
-- Big Decimal: https://www.geeksforgeeks.org/bigdecimal-class-java/
-- StringBuilder: https://www.geeksforgeeks.org/stringbuilder-class-in-java-with-examples/
-- Daemon Thread: https://www.geeksforgeeks.org/daemon-thread-java/
-- Thread Pool: https://www.geeksforgeeks.org/thread-pools-java/
-- Garbage Collector: https://data-flair.training/blogs/garbage-collection-in-java/
-- Finalize: https://www.geeksforgeeks.org/finalize-method-in-java-and-how-to-override-it/
-
-- Cohesion: https://www.geeksforgeeks.org/cohesion-in-java/
-- Coupling: https://www.geeksforgeeks.org/coupling-in-java/
