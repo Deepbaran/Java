@@ -20,6 +20,33 @@ Method overriding is one of the ways in which Java supports Runtime Polymorphism
 -----------
 Misc.:
 -----------
+- To prevent inheritance, use the keyword "final" when creating the class. These classes are called final class. [final class DontExtendMe {}]
+- Call Garbage Collector Manually:Invoking System.gc() or Runtime.getRuntime().gc() might lead one to believe that the garbage collector is invoked when this statement is executed in code however that is not the case. This method is only a hint to the Java framework that the garbage collector be invoked but it is upto the framework whether garbage collection is undertaken or not.
+- In try-catch-finally block, the code in the finally block will get executed before the funcion ends or the return statement gets executed.
+- Finalize:
+	The finalize() method is a protected and non-static method of the java.lang.Object class and is also sometimes called the finalizer. The finalize() method is invoked by the JVM when an object is garbage collected. A user can override the finalize() in his class to dispose of system resources or to perform cleanup tasks.
+	
+	class MyWeirdInputStreamReaderClass {
+
+	    BufferedInputStream bis = null;
+	
+	    void someReadInputMethod() throws FileNotFoundException {
+	        BufferedInputStream bis = new BufferedInputStream(new FileInputStream("pathToFile"));
+	        // ... logic to initialize bis variable but user
+	        // doesn't close the stream
+	    }
+	
+	    // Don't use finalize in production code, bad idea!
+	    @Override
+	    protected void finalize() {
+	        try {
+	            bis.close();
+	        } catch (IOException io) {
+	            // ... log a message
+	        }
+	    }
+	}	
+	
 - Recursion creates a stack of funcion calls. So, we can say recursion behaves like a stack of function. It is also called implicit stack
 - Printing an Object directly prints the hashcode of the object unless the hashcode method is overridden inside the class.
 - Overriding toString() method inside a class will customize how a object is printed when printed using System.out.println()
@@ -28,7 +55,7 @@ Misc.:
 - A super code change should not break code in a sub class and vice-versa.
 - Composition allows us to change the behavior of an object at runtime. Behavior can change without side effects as the behavior isn't tied to the superclass or subclasses.
 - Cohesion is used to indicate the degree to which a class has a single, well-focused purpose. Coupling is all about how classes interact with each other, on the other hand cohesion focuses on how single class is designed. Higher the cohesiveness of the class, better is the OO design.
-
+- An atomic operation is an operation which is performed as a single unit of work without the possibility of interference from other operations.
 -----------
 Design Patterns:
 -----------
@@ -250,6 +277,21 @@ A live-lock occurs when two threads continuously react in response to the action
 => Starvation:
 An application thread can also experience starvation when it never gets CPU time or access to shared resources. Other greedy threads continuously hog shared system resources not letting the starving thread make any progress.
 
-
 => Misc.:
 All Java programs have at least one thread, known as the main thread, which is created by the Java Virtual Machine (JVM) at the program's start, when the main() method is invoked with the main thread.
+
+=> Links:
+- Daemon Threads: https:
+1. https://www.geeksforgeeks.org/daemon-thread-java/
+2. //www.javatpoint.com/daemon-thread
+
+
+
+
+
+
+
+
+
+
+
