@@ -56,6 +56,8 @@ Misc.:
 - Composition allows us to change the behavior of an object at runtime. Behavior can change without side effects as the behavior isn't tied to the superclass or subclasses.
 - Cohesion is used to indicate the degree to which a class has a single, well-focused purpose. Coupling is all about how classes interact with each other, on the other hand cohesion focuses on how single class is designed. Higher the cohesiveness of the class, better is the OO design.
 - An atomic operation is an operation which is performed as a single unit of work without the possibility of interference from other operations.
+- For multiple catch statements, At a time only one exception occurs and at a time only one catch block is executed. All catch blocks must be ordered from most specific to most general, i.e. catch for ArithmeticException must come before catch for Exception.
+
 -----------
 Design Patterns:
 -----------
@@ -277,13 +279,41 @@ A live-lock occurs when two threads continuously react in response to the action
 => Starvation:
 An application thread can also experience starvation when it never gets CPU time or access to shared resources. Other greedy threads continuously hog shared system resources not letting the starving thread make any progress.
 
+=> Thread Safe:
+These are those classes which cannot be accessed by multiple threads at the same time, so no need for synchronized keyword. Race condition does not happen while using these thread safe classes.
+With Thread safe classes we do not need to worry about race conditions and thread synchronization.
+All classes inside util.concurrent are thread safe.
+Use Thread safe classes as much as possible rather than using low level synchronized keyword.
+
 => Misc.:
 All Java programs have at least one thread, known as the main thread, which is created by the Java Virtual Machine (JVM) at the program's start, when the main() method is invoked with the main thread.
 
 => Links:
-- Daemon Threads: https:
+- Daemon Threads:
 1. https://www.geeksforgeeks.org/daemon-thread-java/
-2. //www.javatpoint.com/daemon-thread
+2. //www.javatpoint.com/daemon-thread 
+- Thread Safe Classes: 
+
+=> Topics: https://www.youtube.com/playlist?list=PLBB24CFB073F1048E
+1. Creating a Thread:
+	i.	Extending the Tread class
+	ii.	Implement Runnable interface
+	iii.Anonymous Class
+	iv. Use ExecutorService to use a Thread Pool to create multiple worker threads at once
+2. Synchronization
+	i.	volatile keyword
+	ii.	synchronized keyword
+3. Multiple Locks; Using Synchronized
+4. Thread Pools
+5. Countdown Latches
+6. Producer-Consumer
+7. Wait and Notify
+8. Worked Example Using Low-Level Synchronization (Low Level Producer-Consumer)
+9. Re-entrant Locks
+10. Deadlock
+11. Semaphore
+12. Callable and Future
+13. Interrupting Threads
 
 
 

@@ -22,6 +22,9 @@ import java.util.Random;
  * 
  * We can use any kind of object as locks for synchronized blocks but it is better to use the objects whose value will not change through out the code execution.
  * That is why we created two separate lock objects, lock1 and lock2.
+ * These locks are essentially mutex (meaning, mutually exclusive).
+ * mutex -> It is a locking mechanism used to synchronization access to a resource. Only one task (can be a thread or process based on OS abstraction) can acquire the mutex. It means there is ownership associated with a mutex, and only the owner can release the lock (mutex).
+ *
  */
 
 public class Worker {

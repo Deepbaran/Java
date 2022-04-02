@@ -48,7 +48,8 @@ public class App {
 			executor.submit(new Processor(i)); //submitting a task to executor
 		}
 		
-		executor.shutdown(); //Telling the managerial thread in the executor to shutdown and stop accepting any more tasks
+		executor.shutdown(); //I want my program to terminate once all the worker threads are done executing
+		//Telling the managerial thread in the executor to shutdown and stop accepting any more tasks
 		//With this managerial thread will not submit any new task for now.
 		//This will not shutdown the managerial thread immediately.
 		//Managerial thread will wait for all the worker threads to complete what they were doing before getting shutdown. Then the worker threads will terminate.
