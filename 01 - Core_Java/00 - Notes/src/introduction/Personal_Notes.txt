@@ -315,13 +315,63 @@ All Java programs have at least one thread, known as the main thread, which is c
 12. Callable and Future
 13. Interrupting Threads
 
+++++++++++++++++++++
+Collections:
+++++++++++++++++++++
+-----------
+List:
+-----------
+ArrayList - https://www.javatpoint.com/java-arraylist
+LinkedList - https://www.javatpoint.com/java-linkedlist
 
+Vector (ThreadSafe) - https://www.javatpoint.com/java-vector
 
+-----------
+Stack: See the DSA Notes
+-----------
+-----------
+Queue: See the DSA Notes
+-----------
 
+-----------
+Map:
+-----------
+HashMap - https://www.javatpoint.com/java-hashmap
+LinkedHashMap - https://www.javatpoint.com/java-linkedhashmap
+TreeMap - https://www.javatpoint.com/java-treemap [O(logn) <- Mainly Balanced Trees like AVL trees are used]
 
+HashTable (Thread Safe) - https://www.javatpoint.com/java-hashtable
 
+-----------
+Set:
+-----------
+HashSet - https://www.javatpoint.com/java-hashset
+LinkedHashSet - https://www.javatpoint.com/java-linkedhashset
+TreeSet - https://www.javatpoint.com/java-treeset
 
+-----------
+Sort:
+-----------
+Max-Heap - 
+Min-Heap - 
+Collections - 
+Arrays - 
+Comparator - See the DSA Notes + https://www.geeksforgeeks.org/comparator-interface-java/
+Comparator vs Comparable - https://www.geeksforgeeks.org/comparable-vs-comparator-in-java/
+Binary Search - https://www.javatpoint.com/java-collections-binarysearch-method
+Collections.reverseOrder() - Use this as the 2nd parameter to sort in reverse order.
+Arrays.asList(a, b, c) - Created a List<> with elements a, b and c.
+indexOf() - https://www.javatpoint.com/java-string-indexof
+Arrays.fill(arr, n); - fill the array, arr with the elem, n
+char[] ch = str.toCharArray();
+str = String.valueOf(ch);
+- Integer.toString() throws exception
+- String.valueOf() Handles exception
+- 256 ASCII Characters and 26 alphabets. Always check what is specified before creating a frequency array for characters.
 
+str.split("\\.") - split() takes O(N) time
+In Java, String's split function takes in a regex as input (in the form of a string). In regex, a period, or "." actually is a specially regex character meaning "match anything". 
+So, we need to escape the period character in order to actually match to periods in the input strings. We escape using \, hence "\."
 
 
 
