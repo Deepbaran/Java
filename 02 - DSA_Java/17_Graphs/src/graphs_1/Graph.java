@@ -124,7 +124,7 @@ i> in case of facebook let's say that each user is a node(vertex) and they are c
 ii> Roads connecting different cities is a example of graph.
 iii> Tree is also a graph but it is a special king of graph. Tree is a acyclic(does not contain any cycles) connected(all nodes are connected to eah other) graph.
 
-* Adjacent Vertices: Two vertices are called adjacents if they have a direct edge between them.
+* Adjacent Vertices: Two vertices are called adjacent if they have a direct edge between them.
 
 * Degree: The number of edges connected to a vertices is the degree of that vertex.
 
@@ -142,13 +142,37 @@ iii> Tree is also a graph but it is a special king of graph. Tree is a acyclic(d
 
 * DFS [Depth First Search]: It means once we go into one direction, we will keep going into depth till the point we can't go anymore.
 
-* The minimum number of edges in a connected graph is of order O(n) and the maximum number of edges in a connected graph is of order O(n^2), where n is the number of vertices. So, any algoeithm that works in terms of number of edges then it's time complexity for worst case will be O(n^2). So, any algorithm that works in terms of number of edges then it works quadritaccly ratehr than linearly.
+* The minimum number of edges in a connected graph is of order O(n) and the maximum number of edges in a connected graph is of order O(n^2), where n is the number of vertices. So, any algorithm that works in terms of number of edges then it's time complexity for worst case will be O(n^2). So, any algorithm that works in terms of number of edges then it works quadratically rather than linearly.
 
 * BFS [Breadth First Search]: It's similar to level order traversal in trees
 
 * Directed Graphs: A graph with directed edges. that means, edges[i][j] = 1 does not necessarily imply, edges[j][i] = 1
 
-* Weighted Graphs: Edges have values/weightage/imporatnce. [e.g: Length of the road connecting two roads]
+* Weighted Graphs: Edges have values/weightage/importance. [e.g: Length of the road connecting two roads]
     edges[i][j] = edge of the weight
 
+*/
+
+/*
+Trees is a special kind of graph with two distinct features:
+1. Tree cannot have disjoint sets. Each node must be connected either directly or indirectly.
+2. Tree cannot have cycles. (Trees are acyclic)
+
+If we have an algorithm which runs in terms of edges, then in the worst case, it's time complexity will be O(E) => O(N^2)
+As Time complexity of Edges is O(N^2).
+
+If we have an algorithm which runs in terms of vertices, then in the worst case, it's time complexity will be O(V) => O(N)
+As Time complexity of vertices is O(N).
+
+Representing a Graph:
+1. Edge List: In this case we will put pair of vertices, having edge between them, in a list. Time complexity of figuring out if there is an edge between two vertices: O(n^2) [Same as time complexity of Edges]
+2. Adjacency List: In this case we will have a list of all the vertices and each vertices will have their own list of vertices that they are connected to by edges. Time complexity of finding if two vertices have edges between them: O(n) [Time taken to traverse the list of the respective vertices]
+3. Adjacency Matrix: If there are n vertices then we will create a matrix of n X n and the cess (i, j) will tell us if there is an edge between vertices i and j. It is easy to implement. The downside of Adjacency list is it takes O(n^2) space. In case of Sparse graph (graph with very few edges), the matrix will be filled with a lot of 0s.
+
+Time complexity wise, use Adjacency Matrix.
+Space Complexity wise, use Adjacency List.
+
+Shortest Path Finding Algorithms:
+1. Unweighted graph: BFS
+2. Weighed Graph: Dijkstra (Greedy BFS)
 */

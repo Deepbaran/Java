@@ -60,6 +60,11 @@ public class MapUse {
 		for(String str: keys) { // fast iteration
 			System.out.print(str + " ");
 		}
+		
+		for(Integer value : map.values()) { //Iterate over the values of a Map
+			System.out.println(value);
+		}
+		
 		System.out.println();
 
 		HashMap<Integer, Integer> hm = new HashMap<>();

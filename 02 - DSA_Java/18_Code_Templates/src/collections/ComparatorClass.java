@@ -14,7 +14,8 @@ public class ComparatorClass {
 		Arrays.sort(array, new Comparator<int[]>() {
 			@Override
 			public int compare(int[] a, int[] b) {
-				return Integer.compare(a[0], b[0]); // a[0]<=b[0] -> Don't Swap. a[0]>b[0] -> Swap
+				//a comes after b in the sequence. => [...,b,a,....]
+				return Integer.compare(a[0], b[0]); // a[0]<=b[0] -> Don't Swap. a[0]>b[0] -> Swap || Ascending order
 			}
 		});
 		
@@ -24,6 +25,17 @@ public class ComparatorClass {
 			}
 			System.out.println();
 		}
+		
+		//Using lambda function
+		Arrays.sort(array, (a, b) -> {
+			/*
+			 * a > b -> 1
+			 * a == b -> 0
+			 * a < b -> -1
+			 */
+			
+			return Integer.compare(a[0], b[0]);
+		});
 	}
 
 }
@@ -31,7 +43,8 @@ public class ComparatorClass {
 class Checker implements Comparator<int[]> {
 	@Override
 	public int compare(int[] a, int[] b) {
-		return a[0]-b[0];
+		return a[0]-b[0]; //ascending order: Integer.compare(a[0], b[0]);
+		//return b[0] - a[0] //descending order: Integer.compare(b[0], a[0]);
 		// -1/0 -> Don't Swap
 		// 1 -> Swap
 	}
