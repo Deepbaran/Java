@@ -69,7 +69,7 @@ Design Patterns:
 - Creational Design Patterns (Factory & Singleton & Builder): https://youtu.be/JFvSCobD7JU
 - Structural (Adapter): https://youtu.be/qG286LQM6BU
 - Behavioral (Strategy): https://youtu.be/-NCgRD9-C6o
-- Builder Design Pattern - https://youtu.be/KbIdk5BRn0w
+- Builder Design Pattern - https://youtu.be/KbIdk5BRn0w || https://youtu.be/k4EkJgY9P4c
 
 ++++++++++++++
 STREAM API:
