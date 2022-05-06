@@ -58,6 +58,8 @@ Misc.:
 - An atomic operation is an operation which is performed as a single unit of work without the possibility of interference from other operations.
 - For multiple catch statements, At a time only one exception occurs and at a time only one catch block is executed. All catch blocks must be ordered from most specific to most general, i.e. catch for ArithmeticException must come before catch for Exception.
 
+- Association, Composition & Aggregation - https://www.geeksforgeeks.org/association-composition-aggregation-java/?ref=rp
+
 -----------
 Design Patterns:
 -----------
@@ -316,7 +318,7 @@ All Java programs have at least one thread, known as the main thread, which is c
 13. Interrupting Threads
 
 ++++++++++++++++++++
-Collections:
+Collections: https://practice.geeksforgeeks.org/batch/fork-java/
 ++++++++++++++++++++
 -----------
 List:
@@ -325,6 +327,8 @@ ArrayList - https://www.javatpoint.com/java-arraylist
 LinkedList - https://www.javatpoint.com/java-linkedlist
 
 Vector (ThreadSafe) - https://www.javatpoint.com/java-vector
+
+- for list.remove() if we put a int then index is defined but if we put Integer then a Integer object inside the list is defined rather than the index.
 
 -----------
 Stack: See the DSA Notes
@@ -335,7 +339,10 @@ Queue: See the DSA Notes
 -----------
 LinkedList: 
 -----------
+LinkedList - https://www.javatpoint.com/java-linkedlist
 - LinkedList can be added to a List of Lists.
+- The LinkedList implementation is a Doubly LinkedList.
+
 -----------
 Map:
 -----------
@@ -355,9 +362,12 @@ LinkedHashSet - https://www.javatpoint.com/java-linkedhashset
 TreeSet - https://www.javatpoint.com/java-treeset
 
 -----------
-Sort:
+Sort: TC of add, peek and remove: O(NlogN)
 -----------
 Heap - https://www.tutorialspoint.com/max-heap-in-java
+Min-Heap - javatpoint.com/java-priorityqueue
+- To remove a val from Heap - .remove(val)
+
 
 Collections - 
 Arrays - 

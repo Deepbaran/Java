@@ -20,6 +20,7 @@ public class GetPath_BFS_2 {
 			}
 			for(int i = 0; i < n; i++) {
 				if(i != vertex && edges[vertex][i] == 1 && visited[i] == 0) {
+					//Make sure not traversing the own self, there is an edge, the verticle is not visited. Only then traverse this verticle
 					visited[i] = 1;
 					String path = p + Integer.toString(i);
 					pendingVertices.add(path);

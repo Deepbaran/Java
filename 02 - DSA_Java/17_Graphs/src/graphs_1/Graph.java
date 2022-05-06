@@ -176,3 +176,9 @@ Shortest Path Finding Algorithms:
 1. Unweighted graph: BFS
 2. Weighed Graph: Dijkstra (Greedy BFS)
 */
+
+/*
+All Connected Components: DFS
+IsConnected: DFS
+Has Path (Shortest Path/Path Search for un-weighted undirectional graph): BFS
+*/
