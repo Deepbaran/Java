@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 //Video Explanation - https://leetcode.com/explore/learn/card/graph/620/breadth-first-search-in-graph/3852/
-//Time Complexity: O(V + E)
+//Time Complexity: Adjacency List: O(V + E) | Adjacency Matrix: O(R * C)
 //Space Complexity: O(V)
 public class GetPath_BFS_2 {
 	private static String getPath_BFS(int[][] edges, int n, int[] visited, int v1, int v2) {

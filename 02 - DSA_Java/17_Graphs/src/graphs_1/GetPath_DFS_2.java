@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 //Video Explanation - https://leetcode.com/explore/learn/card/graph/619/depth-first-search-in-graph/3848/
-//Time Complexity: O(V) [As the traversal happens along the Vertices]
+//Time Complexity: Adjacency List: O(V + E) | Adjacency Matrix: O(R * C)
 //Space Complexity: O(V)
 
 public class GetPath_DFS_2 {
