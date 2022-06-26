@@ -1,0 +1,24 @@
+/*
+Singleton Pattern is made Thread safe (Prevent Race condition) by using the synchronised keyword.
+Double checked locking is also used here.
+ */
+
+public class SingletonThreadSafe {
+    //the field needs to be volatile to prevent cache incoherence issues.
+    private static volatile SingletonThreadSafe INSTANCE = null;
+
+    private SingletonThreadSafe() {}
+
+    public static SingletonThreadSafe getInstance() {
+        if(INSTANCE == null) {
+            //Thread safe
+            synchronized (SingletonThreadSafe.class) {
+                //Doing a double check that the instance was not created by another thread ater the first instance check and before getting into the synchronized block
+                if(INSTANCE == null) {
+                    INSTANCE = new SingletonThreadSafe();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+}
