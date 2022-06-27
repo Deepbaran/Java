@@ -1,0 +1,9 @@
+public class Client {
+    public static void main(String[] args) {
+        IAircraftPrototype prototype = new F16();
+
+        //Create F16-A
+        IAircraftPrototype f16A = prototype.clone();
+        f16A.setEngine(new F16AEngine());
+    }
+}
