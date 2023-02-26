@@ -1,0 +1,27 @@
+++++++++++
+Notes:
+++++++++++
+===========
+Serializable:
+===========
+> To serialize an object means to convert its state to a byte stream so that the byte stream can be reverted back into a copy of the object. 
+> A Java object is serializable if its class or any of its superclasses implements either the java.io.Serializable interface or its subinterface, java.io.Externalizable.
+> Many Collections extends it. For example, the List interface extends it.
+
+===========
+Whether a Generic type is faster than a non-generic type:
+===========
+> Because of type erasure, it is going to be exactly the same, because during type erasure, Java is going to get rid of wildcards and the generic type parameters and the bytecode is going to act just like a non-generic type with the broad type, with type castings and so on. So performance is going to be exactly the same as far as runtime performance is concerned.
+> So in the bytecode the Generic codes and the Non-generic codes are equivalent because of type erasure.
+> So again, Java uses type erasure in order to implement Generics and under the hood, the bytecode will contain classes and objects exclusively.
+
+===========
+Collection vs Collections:
+===========
+> Collections is an interface whereas Collections is a utility class (All the methods in here are static) in Java.
+
+===========
+Comparable vs Comparator:
+===========
+> Comparable is the interface that the Class that we are sorting implements and overrides the compareTo() method.
+> Comparator is the interface that a new Class implements and overrides the compare() method. We pass a instance of this class as second parameter in the sort().

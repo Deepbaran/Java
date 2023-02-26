@@ -1,0 +1,505 @@
+++++++++++++++
+JAVA:
+++++++++++++++
+-----------
+Concrete Class:
+-----------
+- A Concrete Class is a class that has implementation of all the methods of another Super class/Interface. Then the implementing class is called the Concrete Class of the implemented Class/Interface.
+- Interfaces are treated as APIs that the Concrete class needs to implement.
+
+-----------
+Marker Interface:
+-----------
+A marker interface is an interface that has no methods or constants inside it. It provides run-time type information about objects, so the compiler and JVM have additional information about the object. A marker interface is also called a tagging interface.
+
+-----------
+Dynamic Dispatcher:
+-----------
+Method overriding is one of the ways in which Java supports Runtime Polymorphism. Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time.
+
+-----------
+Misc.:
+-----------
+- To prevent inheritance, use the keyword "final" when creating the class. These classes are called final class. [final class DontExtendMe {}]
+- Call Garbage Collector Manually:Invoking System.gc() or Runtime.getRuntime().gc() might lead one to believe that the garbage collector is invoked when this statement is executed in code however that is not the case. This method is only a hint to the Java framework that the garbage collector be invoked but it is upto the framework whether garbage collection is undertaken or not.
+- In try-catch-finally block, the code in the finally block will get executed before the funcion ends or the return statement gets executed.
+- Finalize:
+	The finalize() method is a protected and non-static method of the java.lang.Object class and is also sometimes called the finalizer. The finalize() method is invoked by the JVM when an object is garbage collected. A user can override the finalize() in his class to dispose of system resources or to perform cleanup tasks.
+	
+	class MyWeirdInputStreamReaderClass {
+
+	    BufferedInputStream bis = null;
+	
+	    void someReadInputMethod() throws FileNotFoundException {
+	        BufferedInputStream bis = new BufferedInputStream(new FileInputStream("pathToFile"));
+	        // ... logic to initialize bis variable but user
+	        // doesn't close the stream
+	    }
+	
+	    // Don't use finalize in production code, bad idea!
+	    @Override
+	    protected void finalize() {
+	        try {
+	            bis.close();
+	        } catch (IOException io) {
+	            // ... log a message
+	        }
+	    }
+	}	
+	
+- Recursion creates a stack of funcion calls. So, we can say recursion behaves like a stack of function. It is also called implicit stack
+- Printing an Object directly prints the hashcode of the object unless the hashcode method is overridden inside the class.
+- Overriding toString() method inside a class will customize how a object is printed when printed using System.out.println()
+- Avoid interfaces that just force action. Using an interface just to force the creation of a method is a bad idea.
+- DRY: Do not Repeat Yourself. Eliminate duplicate code.
+- A super code change should not break code in a sub class and vice-versa.
+- Composition allows us to change the behavior of an object at runtime. Behavior can change without side effects as the behavior isn't tied to the superclass or subclasses.
+- Cohesion is used to indicate the degree to which a class has a single, well-focused purpose. Coupling is all about how classes interact with each other, on the other hand cohesion focuses on how single class is designed. Higher the cohesiveness of the class, better is the OO design.
+- An atomic operation is an operation which is performed as a single unit of work without the possibility of interference from other operations.
+- For multiple catch statements, At a time only one exception occurs and at a time only one catch block is executed. All catch blocks must be ordered from most specific to most general, i.e. catch for ArithmeticException must come before catch for Exception.
+
+- Association, Composition & Aggregation - https://www.geeksforgeeks.org/association-composition-aggregation-java/?ref=rp
+
+-----------
+Design Patterns:
+-----------
+- SOLID:
+1. https://youtu.be/oRA-xnqlB10
+2. https://youtu.be/zn2Sn7lMnLM
+- Creational Design Patterns (Factory & Singleton & Builder): https://youtu.be/JFvSCobD7JU
+- Structural (Adapter): https://youtu.be/qG286LQM6BU
+- Behavioral (Strategy): https://youtu.be/-NCgRD9-C6o
+- Builder Design Pattern - https://youtu.be/KbIdk5BRn0w || https://youtu.be/k4EkJgY9P4c
+
+++++++++++++++
+STREAM API:
+++++++++++++++
+- These streams are related to Collection Frameworks / (group of objects). These streams are very different from io stream, io streams are the sequence of data.
+
+- These streams help to process a group of objects or collections.
+
+- These streams was introduces in java 1.8 version.
+
+- Stream API basically perform bulk operations and process the objects of collection.
+
+- Streams reduce the code length.
+
+- stream(): Creates a stream object from a Collection or a group of objects.
+
+- collect(Collectors.to###()):  Collects the stream to make a Collection or group of objects out of the stream.
+
+- Collectors.to###(): This defines in which Collection or group of objects will the collect() method collect the stream.
+
+- get(): If we only have a single element in the stream then we can use get() instead of collect().
+
+- Predicate: Predicate means a boolean valued function. That means, it will only return true or false.
+
+- filter(predicate): It filters the current stream and creates a new stream where only the desired values are included. filter() takes a predicate and the predicate returns only a boolean value (either true or false). For each value in the stream, filter() will check the predicate. If the predicate returns true, then that value will be included in the filtered stream otherwise that value will not be included in the filtered stream.
+
+- forEach(): This method helps in traversing each value in the stream. Rather than passing the whole method, we can just the method reference to it too. If we pass a method reference, then forEach will apply the method on all the elements in the stream.
+
+- map(function): We can perform a opertion on each element using this method. map() returns a new stream, where all the updates values are stored. It does not need a predicate. It takes a function which will perform the operation and the returned updated values are included in the new stream.
+
+- min(): It returns the minimum number in the stream. We need to pass a comparator function, to tell it how to compare two elements in the stream to get the minimum element.
+
+- max(): It returns the maximum number in the stream. We need to pass a comparator function, to tell it how to compare two elements in the stream to get the maximum element. 
+
+- sorted(): Sorts the stream elements. We can pass a comparator to get a customized sorted stream.
+
+++++++++++++++++++++++++++++++
+Collection Framework:
+++++++++++++++++++++++++++++++
+--------------------------
+Comparator VS Comparable:
+--------------------------
+1. Comparable provides a single sorting sequence. In other words, we can sort the collection on the basis of a single element such as id, name, and price.
+	On the other hand, the Comparator provides multiple sorting sequences. In other words, we can sort the collection on the basis of multiple elements such as id, name, and price etc.
+	
+2. Comparable affects the original class, i.e., the actual class is modified.
+	On the other hand Comparator doesn't affect the original class, i.e., the actual class is not modified.
+	
+3. Comparable provides compareTo() method to sort elements.
+	On the other hand, Comparator provides compare() method to sort elements.
+	
+4. Comparable is present in java.lang package.
+	On the other hand, a Comparator is present in the java.util package.
+	
+5. We can sort the list elements of Comparable type by Collections.sort(List) method.
+	On the other hand, we can sort the list elements of Comparator type by Collections.sort(List, Comparator) method.
+
++++++++++++++++++++++++++++++++
+Code Quality:
++++++++++++++++++++++++++++++++
+-----------
+Design Patterns:
+-----------
+- Design Patterns establishes solutions to common problems which helps to keep code maintainable, extensible and loosely coupled. 
+
+-----------
+Strategy Pattern: (Behavioral)
+-----------
+=> Strategy Pattern - It defines a famiy of algorithms, encapsulate each one, and make them interchangeable. The Strategy Pattern lets the algorithm vary independently from clients that use it.
+
+Q. When to use the Strategy Pattern?
+A: When you want to define a class that will have one behavior that is similar to other behaviors in a list.
+  * I want the class object to be able to choose from:
+    - Not flying
+	- Fly with Wings
+	- Fly Super Fast
+When you need to use one of several behaviors dynamically.
+  - Often reduces long lists of conditionals
+  - Avoids duplicate code
+  - Keeps class changes from forcing other class changes
+  - Can hide complicated/secret code from the user
+Negative: Increased Number of Objects/Classed
+
+-----------
+Adapter Pattern: (Structural)
+-----------
+=>
+- Allows 2 incompatible interfaces to work together.
+- USed when the client expects a (target) interface.
+- The Adapter class allows the use of the available interface and the Target interface.
+- Any class can work together as long as the Adapter solves the issue that all classes must iplement every method defined bu the shared interface.
+
+-----------
+SOLID Principles:
+-----------
+- SOLID principles are used for: They lead to better code for readability, maintainability, design patterns, and testability.
+- Principles:
+1. Single Responsibility
+2. Open/Closed
+3. Liskov Substitution
+4. Interface Segregation
+5. Dependency Inversion
+
+-----------
+SRP:
+-----------
+Q. What is Single Responsibility Principle in solid principles?
+A: It states  that  â€œOne class should have one and only one responsibilityâ€�
+Which specifically means - we should write, change, and maintain a class only for one purpose. 
+Change Class only when you need to change state of one particular object or instance 
+Example : POJOS follow SRP.
+Suppose we have Employee and Address Class, If we want to change the state of Employee then we do not need to modify the class Account and vice-versa.
+If you world have merged both as single POJO , then modification in one field for address (like state ) needs to modify and Whole POJO including Employee
+Worst Design - which donâ€™t follow SRP  Hitting Database in POJO of Employee Class. Thatâ€™s why we have service layer, DAP layer and Entities separated. 
+
+Q. Why is Single Responsibility Principle IMP?
+A: In Real world, Requirement changes and so does your code implementation to cater the changing requirement , 
+The more responsibilities your class has, the more often you need to change it. To prevent frequent changes to same class, 
+Testing is easier - With a single responsibility, the class will have fewer test cases
+Easier to Understand
+Less functionality also means fewer dependencies to other classes.
+So best practise says : Use layers in your application and break God classes into smaller classes or modules
+
+-----------
+OCP:
+-----------
+Q. What is Open/Closed Principle in solid principles?
+A: It states  that  â€œSoftware components should be open for extension, but closed for modificationâ€�
+The term â€œOpen for extensionâ€� means that we can extend and include extra functionalities in our code without altering or affecting our existing implementation.
+The term â€œClosed for modificationâ€� means that after we add the extra functionality, we should not modify the existing implementation.
+In real world, You must have noticed that you change something to cater a new requirement and some other functionality breaks because of your change. To prevent that we have this principle in hand. It s one of the most imp concept in in solid principles
+
+Q. How to implement Open/Closed Principle in solid principles?
+A: The application classes should be designed in such a way that whenever fellow developers want to change the flow of control in specific conditions in application, all they need to extend the class and override some functions and thatâ€™s it.
+Example - created a pojo employee with id , name. now new functionality comes which says add Training location. your constructor will fail for employees who didnt do training. better extend employee class, name it Traineed employee then add constructor.
+
+-----------
+LSP:
+-----------
+- Create subclasses or extend the super classes in such a way, that if we replace the super class object with the subclass object in our code, the functionalities should not break.
+- This is important because:
+1. This avoids misusing inheritance.
+2. It helps us conform to the "is-a" relationship.
+3. We can also say that subclasses must fulfill a contract defined by the base class.
+
+-----------
+ISP:
+-----------
+- It is same as SRP, but for interfaces whereas SRP is for classes.
+- It states that "Clients should not be forces to implement unnecessary methods which they will not use".
+- According to ISP we should split our interfaces into smaller and more specific ones.
+
+-----------
+DIP:
+-----------
+- It states that "Depends on abstarction, not on concretion".
+- We should design our software in such a way that various modules can be separated from each other using an abstract layer to bind them together.
+- Rather than tight coupling use loose coupling. Rather than using concrete classes, use abstarct.
+- Coupling
+	a. Tight Coupling [Not Good Code !!!]
+			class A {
+				B b = new B();
+			}
+	b. Loose Coupling [Good Code !!!]
+			class A {
+				B b;
+				public A(B b) {
+					this.b = b;
+				}
+			}
+- It helps us to remove harcoded dependencies so that application becomes loosely coupled and extendable.
+
+-----------
+MVC Patterns:
+-----------
+- Model: JDBC
+- View: JSP
+- Controller: Servlet
+
+User <-Sees------ View <---------Updates
+  |							 		|
+  Uses-> Controller -Manipulates-> Model
+
+++++++++++++++++++++
+Multi Threading:
+++++++++++++++++++++
+=> Benefits:
+  - Higher throughput
+  - Responsive applications [Illusion of multitasking]
+  - Efficient utilization of resources
+
+=> Problems: 
+  - It's usually very hard to find bugs
+  - Higher cost of code maintenance
+  - Increased utilization of system resources
+  - Programs may experience slowdown
+
+=> Thread Safety:
+If multiple threads can mutate the values of a class or function at the same time then that is not thread safe. If a class or a program has an immutable state then the class is necessarily thread-safe.
+
+=> Deadlock:
+Deadlocks occur when two or more threads aren't able to make any progress because the resource required by the first thread is held by the second and the resource required by the second thread is held by the first.
+
+=> Liveliness:
+Ability of a program or an application to execute in a timely manner is called liveness.
+
+=> Live-lock:
+A live-lock occurs when two threads continuously react in response to the actions by the other thread without making any real progress.
+
+=> Starvation:
+An application thread can also experience starvation when it never gets CPU time or access to shared resources. Other greedy threads continuously hog shared system resources not letting the starving thread make any progress.
+
+=> Thread Safe:
+These are those classes which cannot be accessed by multiple threads at the same time, so no need for synchronized keyword. Race condition does not happen while using these thread safe classes.
+With Thread safe classes we do not need to worry about race conditions and thread synchronization.
+All classes inside util.concurrent are thread safe.
+Use Thread safe classes as much as possible rather than using low level synchronized keyword.
+
+=> Misc.:
+All Java programs have at least one thread, known as the main thread, which is created by the Java Virtual Machine (JVM) at the program's start, when the main() method is invoked with the main thread.
+
+=> Links:
+- Daemon Threads:
+1. https://www.geeksforgeeks.org/daemon-thread-java/
+2. https://www.javatpoint.com/daemon-thread 
+- Thread Safe Classes: 
+
+=> Topics: https://www.youtube.com/playlist?list=PLBB24CFB073F1048E
+1. Creating a Thread:
+	i.	Extending the Tread class
+	ii.	Implement Runnable interface
+	iii.Anonymous Class
+	iv. Use ExecutorService to use a Thread Pool to create multiple worker threads at once
+2. Synchronization
+	i.	volatile keyword
+	ii.	synchronized keyword
+3. Multiple Locks; Using Synchronized
+4. Thread Pools
+5. Countdown Latches
+6. Producer-Consumer
+7. Wait and Notify
+8. Worked Example Using Low-Level Synchronization (Low Level Producer-Consumer)
+9. Re-entrant Locks
+10. Deadlock
+11. Semaphore
+12. Callable and Future
+13. Interrupting Threads
+
+++++++++++++++++++++
+Links:
+++++++++++++++++++++
+- Java - https://www.javatpoint.com/types-of-exception-in-java
+- Exception Handling - https://www.javatpoint.com/exception-handling-in-java
+- No matter what, finally block will get executed even if there is a return statement in the try block or the catch block
+- Exception Types - https://www.javatpoint.com/types-of-exception-in-java
+- Data binding - https://www.javatpoint.com/static-binding-and-dynamic-binding
+- Runtime Polymorphism - https://www.javatpoint.com/runtime-polymorphism-in-java
+- Java toString() Method - https://www.javatpoint.com/understanding-toString()-method
+- Overriding equals method - https://www.geeksforgeeks.org/overriding-equals-method-in-java/
+- Instance Initializer Block - https://www.javatpoint.com/instance-initializer-block
+- Final Keyword - https://www.javatpoint.com/final-keyword
+- Inner Classes - https://www.javatpoint.com/java-inner-class
+- Enum - https://www.javatpoint.com/enum-in-java
+- Annotations - https://www.javatpoint.com/java-annotation
+- Collections - https://youtu.be/BMzp_U6IkoY
+- Generics - https://youtu.be/aXZrz8XKQpE || https://www.javatpoint.com/generics-in-java
+- Type Inference - https://www.javatpoint.com/java-type-inference-for-generics
+- Type Erasure - https://www.javatpoint.com/typeerasure-in-java
+- Autoboxing - https://www.javatpoint.com/autoboxing-and-unboxing
+- Static Import - https://www.javatpoint.com/static-import-in-java
+- varargs - https://www.javatpoint.com/varargs
+- Java 8 - https://youtube.com/playlist?list=PL0zysOflRCenwK0kbJMliCeELVv9SSUbk || https://www.javatpoint.com/java-8-features
+- Stream API - https://www.javatpoint.com/java-8-stream
+- Lambda Expressions - https://www.javatpoint.com/java-lambda-expressions
+- Threading - https://www.youtube.com/playlist?list=PLBB24CFB073F1048E
+- Daemon Thread - https://www.javatpoint.com/daemon-thread
+- Garbage Collection - https://www.javatpoint.com/Garbage-Collection
+- Java I/O - https://www.javatpoint.com/java-io
+- String Builder - https://www.javatpoint.com/StringBuilder-class
+- String Buffer - https://www.javatpoint.com/StringBuffer-class
+- String Methods - https://www.javatpoint.com/java-string-charat
+- Scanner vs  BufferedReader - https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/
+- All the Bit operations. Including (>>> and <<<) - 
+- Thread Safe and Thread Unsafe - 
+- Thread Safe and Thread Unsafe Singleton - 
+- Builder Pattern - 
+- Factory Method Pattern - 
+- SOLID - 
+- Thread Safe and Tread Unsafe HashTable Design - 
+- Thread Safe and Thread Unsafe HashSet Design - 
+- Thread Safe and Thread Unsafe Dynamic Array (ArrayList & Vector) - 
+- Queue Using Stack - 
+- Stack Using Queue - 
+- LRU Cache Design - 
+- LFU Cache Design - 
+- Min Stack Design - 
+- Chess - 
+- Sudoku Solver - 
+- Serialize and Deserialize a Tree - 
+- String Class Design - 
+- Design Trie - 
+- Huffman Coding and Decoding - 
+- Heap Sort - 
+- AVL Tree - 
+- Design Stack - 
+- Design Queue - 
+- Design Dynamic Array - 
+- Immutable Classes - 
+- Sort a HashMap based on values - 
+- TinyURL - 
+- Why child class reference can't point to parent's object in Java
+- toString & hash in a object/class - 
+- JDBC - 
+- Comparator vs Comparable - 
+- Contiguous vs Continuous - 
+- Auto closing in try-catch - 
+- var keyword - 
+- Serializable Interface - https://www.geeksforgeeks.org/serializable-interface-in-java/
+- Static and non-static variables
+- Why can Abstract only have static and final variables
+- Concurrent API in Java
+- ExecutorService framework in Java
+- What is Concurrent Modification Exception and how to handle it
+- Why character array is better than string for storing password in Java
+- Can we handle Error in catch block and why - We can only handle exceptions. Error cannot be handled.
+- Best practices while using Collections
+- What all Design Patterns used in JVM
+- Optional - 
+- Interview Questions1 - https://www.javatpoint.com/corejava-interview-questions
+- Interview Questions2 - https://www.javatpoint.com/java-collections-interview-questions
+- Interview Questions3 - https://www.javatpoint.com/oops-interview-questions
+- Interview Questions4 - https://www.javatpoint.com/array-interview-questions-in-java
+- Interview Questions5 - https://www.javatpoint.com/java-8-interview-questions
+- Interview Questions6 - https://github.com/learning-zone/spring-interview-questions
+- Interview Questions7 - https://www.geeksforgeeks.org/quiz-corner-gq/
+- Interview Questions8 - https://www.geeksforgeeks.org/commonly-asked-java-programming-interview-questions-set-2/
+- Interview Questions9 - https://www.geeksforgeeks.org/commonly-asked-oop-interview-questions/
+- Interview Questions10 - https://www.geeksforgeeks.org/interview-questions-for-java-professionals/
+- Interview Questions11 - https://www.geeksforgeeks.org/java-multiple-choice-questions/
+- Interview Questions12 - https://youtube.com/playlist?list=PL0zysOflRCen9SPmMO2XN1I2S9m96G_dx
+
+++++++++++++++++++++
+Collections: https://practice.geeksforgeeks.org/batch/fork-java/
+++++++++++++++++++++
+-----------
+List:
+-----------
+ArrayList - https://www.javatpoint.com/java-arraylist
+LinkedList - https://www.javatpoint.com/java-linkedlist
+
+Vector (ThreadSafe) - https://www.javatpoint.com/java-vector
+
+- for list.remove() if we put a int then index is defined but if we put Integer then a Integer object inside the list is defined rather than the index.
+
+-----------
+Stack: See the DSA Notes
+-----------
+-----------
+Queue: See the DSA Notes
+-----------
+-----------
+LinkedList: 
+-----------
+LinkedList - https://www.javatpoint.com/java-linkedlist
+- LinkedList can be added to a List of Lists.
+- The LinkedList implementation is a Doubly LinkedList.
+
+-----------
+Map:
+-----------
+HashMap - https://www.javatpoint.com/java-hashmap
+LinkedHashMap - https://www.javatpoint.com/java-linkedhashmap
+TreeMap - https://www.javatpoint.com/java-treemap [O(logn) <- Mainly Balanced Trees like AVL trees are used]
+
+For operations like add, remove, containsKey, time complexity is O(log n where n is number of elements present in TreeMap. TreeMap always keeps the elements in a sorted(increasing) order, while the elements in a HashMap have no order.
+
+HashTable (Thread Safe) - https://www.javatpoint.com/java-hashtable
+
+-----------
+Set:
+-----------
+HashSet - https://www.javatpoint.com/java-hashset
+LinkedHashSet - https://www.javatpoint.com/java-linkedhashset
+TreeSet - https://www.javatpoint.com/java-treeset
+
+-----------
+Sort: TC of add, peek and remove: O(NlogN)
+-----------
+Heap - https://www.tutorialspoint.com/max-heap-in-java
+Min-Heap - javatpoint.com/java-priorityqueue
+- To remove a val from Heap - .remove(val)
+
+
+Collections - 
+Arrays - 
+Comparator - See the DSA Notes + https://www.geeksforgeeks.org/comparator-interface-java/
+Comparator vs Comparable - https://www.geeksforgeeks.org/comparable-vs-comparator-in-java/
+Binary Search - https://www.javatpoint.com/java-collections-binarysearch-method
+Collections.reverseOrder() - Use this as the 2nd parameter to sort in reverse order.
+Arrays.asList(a, b, c) - Created a List<> with elements a, b and c.
+Arrays.copyOfRange(nums1, 0, k)
+indexOf() - https://www.javatpoint.com/java-string-indexof
+
+-----------
+More:
+-----------
+
+> @Ignore - A test method annotated with @Ignore will not be executed.
+
+> @Override - Informs the compiler that the element is meant to override an element declared in a superclass.
+
+> @Depreciated - Indicates that the marked element is deprecated and should no longer be used. The compiler generates a warning whenever a program uses a method, class, or field with the @Deprecated annotation.
+
+
+Arrays.fill(arr, n); - fill the array, arr with the elem, n
+
+char[] ch = str.toCharArray();
+str = String.valueOf(ch);
+- Integer.toString() throws exception
+- String.valueOf() Handles exception
+- 256 ASCII Characters and 26 alphabets. Always check what is specified before creating a frequency array for characters.
+
+str.split("\\.") - split() takes O(N) time
+In Java, String's split function takes in a regex as input (in the form of a string). In regex, a period, or "." actually is a specially regex character meaning "match anything". 
+So, we need to escape the period character in order to actually match to periods in the input strings. We escape using \, hence "\."
+
+String Comparison: https://www.geeksforgeeks.org/compare-two-strings-in-java/
+
+str.toLowerCase()
+str.toUpperCase
+Both have O(N) time complexity
+
+Collections.reverse(list) <- O(N)
