@@ -71,9 +71,78 @@ Design Patterns:
 - Behavioral (Strategy): https://youtu.be/-NCgRD9-C6o
 - Builder Design Pattern - https://youtu.be/KbIdk5BRn0w || https://youtu.be/k4EkJgY9P4c
 
-++++++++++++++
+++++++++++++++++++++
+Java 8:
+++++++++++++++++++++
+-------------------
+Lambda Expressions:
+-------------------
+=> What is Lambda?
+- Lambda Expression is anonymous Function having:
+	- No Name
+	- No Modifier
+	- No Return Type
+
+public void main() {               () -> {
+	SOP("test");				   		SOP("test");
+}								    }
+
+=> Benefits of Lambda
+- Reduces the lines of Code.
+- One thing to note is that we can only use Lambda with Functional Interface. Without Functional Interface we cannot use Lambda Expression.
+- With Lambda Expressions functions became entities in Java (Java became Functional Programming Enabled). Meaning we can pass functions as functional argument.
+- Sequential and Parallel execution support by passing behavior as an argument in methods.
+- To call APIs Very effectively (Stream and Collections APIs)
+- To write more Readable, Maintainable and Concise code.
+- Java was a OOP but after lambda, Java became Functional Programming Enables.
+
+=> How to write Lambda
+
+public void main() {               () -> {
+	SOP("test");				   		SOP("test");
+}								    }
+
+
+public int sum(int a, int b) {               (int a, int b) -> {        (a, b) -> a+b;
+	return a+b;							   	 	return a+b;					
+}								    		 }
+
+=> Important Rules Lambda
+- If the body of the Lambda Expression contains only one statement then curly braces are optional.
+- Java compiler also infer the type of variable passed in arguments, hence type is optional.
+
+=> Functional Interface [@FunctionalInterface]
+- If the interface contains only one abstract methods then it is Functional Interface.
+- Ex: Runnable, Callable, Comparable etc.
+- To call lambda we require functional interface.
+- Lambda is used to implement functional interface in very simple and short manner.
+
+-------------------
 STREAM API:
-++++++++++++++
+-------------------
+=> Introduction to Stream API
+- These streams are related to Collection Frameworks/(Group of Objects). These statements are very different from io stream, io streams are the sequence of data.
+- io streams are used to read and write the data but Stream API is used to help us process bulk of data/object/collection.
+- These streams were introduced in java 1.8 version.
+- Stream API is basically perform bulk operations and process the objects of collection.
+- Streams reduced the code length.
+
+=> Java code without stream vs with stream api
+
+=> How to create the object of Stream and processing data
+
+=> filter and map methods with example
+
+=> Other important methods and operations such as:
+- Collect()
+- Sorted()
+- min()
+- max()
+- forEach()
+- toArray()
+- Stream.of()
+
+=> Misc:
 - These streams are related to Collection Frameworks / (group of objects). These streams are very different from io stream, io streams are the sequence of data.
 
 - These streams help to process a group of objects or collections.
@@ -105,6 +174,12 @@ STREAM API:
 - max(): It returns the maximum number in the stream. We need to pass a comparator function, to tell it how to compare two elements in the stream to get the maximum element. 
 
 - sorted(): Sorts the stream elements. We can pass a comparator to get a customized sorted stream.
+
+-------------------
+Optional Class:
+-------------------
+- Optional is a container object used to contain not-null objects. Optional object is used to represent null with absent value. This class has various utility methods to facilitate code to handle values as 'available' or 'not available' instead of checking null values.
+- Helps  in avoiding NullPoiterException.
 
 ++++++++++++++++++++++++++++++
 Collection Framework:
@@ -332,6 +407,7 @@ Links:
 - Instance Initializer Block - https://www.javatpoint.com/instance-initializer-block
 - Final Keyword - https://www.javatpoint.com/final-keyword
 - Inner Classes - https://www.javatpoint.com/java-inner-class
+- Anonymous Class - https://www.javatpoint.com/anonymous-inner-class
 - Enum - https://www.javatpoint.com/enum-in-java
 - Annotations - https://www.javatpoint.com/java-annotation
 - Collections - https://youtu.be/BMzp_U6IkoY
@@ -352,6 +428,8 @@ Links:
 - String Buffer - https://www.javatpoint.com/StringBuffer-class
 - String Methods - https://www.javatpoint.com/java-string-charat
 - Scanner vs  BufferedReader - https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/
+- Java 8 Interace - https://www.javatpoint.com/java-default-methods
+- Java Static Import - https://www.javatpoint.com/static-import-in-java
 - All the Bit operations. Including (>>> and <<<) - 
 - Thread Safe and Thread Unsafe - 
 - Thread Safe and Thread Unsafe Singleton - 
