@@ -143,6 +143,10 @@ STREAM API:
 - Stream.of()
 
 => Misc:
+- Reduce - https://www.javatpoint.com/reduce-java
+
+- Count - https://www.geeksforgeeks.org/stream-count-method-java/
+
 - These streams are related to Collection Frameworks / (group of objects). These streams are very different from io stream, io streams are the sequence of data.
 
 - These streams help to process a group of objects or collections.
@@ -174,6 +178,11 @@ STREAM API:
 - max(): It returns the maximum number in the stream. We need to pass a comparator function, to tell it how to compare two elements in the stream to get the maximum element. 
 
 - sorted(): Sorts the stream elements. We can pass a comparator to get a customized sorted stream.
+
+-------------------
+Method Reference:
+-------------------
+- Link - https://www.javatpoint.com/java-8-method-reference
 
 -------------------
 Optional Class:
@@ -429,7 +438,12 @@ Links:
 - String Methods - https://www.javatpoint.com/java-string-charat
 - Scanner vs  BufferedReader - https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/
 - Java 8 Interace - https://www.javatpoint.com/java-default-methods
+- Default and Private Methods in interfaces - https://www.codingame.com/playgrounds/2970/default-and-private-methods-in-interfaces#:~:text=A%20class%20can%20override%20a,only%20one%20interface%20is%20added.
 - Java Static Import - https://www.javatpoint.com/static-import-in-java
+- Method Reference - https://www.javatpoint.com/java-8-method-reference
+- Optional Class - https://www.javatpoint.com/java-8-optional
+- Reduce - https://www.javatpoint.com/reduce-java
+- Count - https://www.geeksforgeeks.org/stream-count-method-java/
 - All the Bit operations. Including (>>> and <<<) - 
 - Thread Safe and Thread Unsafe - 
 - Thread Safe and Thread Unsafe Singleton - 

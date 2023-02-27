@@ -38,6 +38,7 @@ public class StreamMain1 {
 		//get stream from list1
 		//We can use the stream() function to get the stream object from any collection
 		//Stream  is an interface
+		//As it is an interface, we cannot create it's Object using new, so there must be some child class's object that we are getting
 		Stream<Integer> stream = list1.stream();
 		
 		//now we can perform bulk operations on the stream
