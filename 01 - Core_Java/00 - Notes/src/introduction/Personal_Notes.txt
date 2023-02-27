@@ -222,7 +222,7 @@ Design Patterns:
 -----------
 Strategy Pattern: (Behavioral)
 -----------
-=> Strategy Pattern - It defines a famiy of algorithms, encapsulate each one, and make them interchangeable. The Strategy Pattern lets the algorithm vary independently from clients that use it.
+=> Strategy Pattern - It defines a family of algorithms, encapsulate each one, and make them interchangeable. The Strategy Pattern lets the algorithm vary independently from clients that use it.
 
 Q. When to use the Strategy Pattern?
 A: When you want to define a class that will have one behavior that is similar to other behaviors in a list.
