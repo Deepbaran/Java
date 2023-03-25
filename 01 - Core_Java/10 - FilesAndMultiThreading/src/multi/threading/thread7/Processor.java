@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Processor {
 
 	public void produce() throws InterruptedException {
-		synchronized (this) { //providing 'this' in-place of a explicit lock object means that we are going to use the intrinsic lock of the object
+		synchronized (this) { //providing 'this' in-place of a explicit lock object means that we are going to use the intrinsic lock of the Processor object
 			System.out.println("Producer thread running ...");
 			this.wait(); //Causes the current thread to wait until it is awakened, typically by being notified or interrupted. It is a method of Object class.
 			//We can use just wait() too if the object we are locking on is this. Otherwise we need to explicitly use that object's wait() 
@@ -33,7 +33,7 @@ public class Processor {
 		Scanner scanner = new Scanner(System.in);
 		Thread.sleep(2000);
 		
-		synchronized (this) {
+		synchronized (this) { //We are using the intrinsic lock of the Process object. When the synchronized block releases the key due to the wait(), consumer will use the key. So, it is important that both use the same lock-key
 			System.out.println("Waiting for return key.");
 			scanner.nextLine();
 			System.out.println("Return key pressed");

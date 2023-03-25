@@ -1,6 +1,6 @@
 package multi.threading.thread2.demo2;
 
-// Race condition happens when the tread executing in the critical section leaves midway and another thread steps in executes
+// Race condition happens when the thread executing in the critical section leaves midway and another thread steps in executes
 // synchronized keyword stops race condition from happening.
 /*
  * Every object in Java has a intrinsic lock or a monitor lock or mutex.
@@ -11,6 +11,9 @@ package multi.threading.thread2.demo2;
  * 
  * Whenever multiple threads are trying to access shared data, always use synchronized method to avoid race condition.
  * Use volatile keyword if one thread wants to change the value of a variable of another thread.
+ * 
+ * Problem with Race Condition - synchronized
+ * Problem with caching - volatile
  */
 
 public class App {
@@ -59,6 +62,11 @@ public class App {
 		try {
 			t1.join(); //join pauses the execution of the thread where t1 was called in (In this case, main thread) till t1 is done executing.
 			t2.join();
+			/*
+			 * If we do not make the main thread wait till t1 and t2 gets completely executed by using join() then main thread will create t1 and t2 and ask them to start executing on their own
+			 * and while t1 and t2 starts executing, main thread will continue to execute the next statements (int this case the sysout).
+			 * So, we need to make sure that main thread executes sysout only after t1 and t2 are done executing, otherwise we will not get proper value for count.
+			 */
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

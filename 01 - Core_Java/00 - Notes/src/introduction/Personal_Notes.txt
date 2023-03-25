@@ -381,7 +381,7 @@ All Java programs have at least one thread, known as the main thread, which is c
 2. https://www.javatpoint.com/daemon-thread 
 - Thread Safe Classes: 
 
-=> Topics: https://www.youtube.com/playlist?list=PLBB24CFB073F1048E
+=> Topics [1-5,7-8,12-13]: https://www.youtube.com/playlist?list=PLBB24CFB073F1048E
 1. Creating a Thread:
 	i.	Extending the Tread class
 	ii.	Implement Runnable interface
@@ -419,8 +419,8 @@ Links:
 - Anonymous Class - https://www.javatpoint.com/anonymous-inner-class
 - Enum - https://www.javatpoint.com/enum-in-java
 - Annotations - https://www.javatpoint.com/java-annotation
-- Collections - https://youtu.be/BMzp_U6IkoY
-- Generics - https://youtu.be/aXZrz8XKQpE || https://www.javatpoint.com/generics-in-java
+- Collections - https://youtu.be/BMzp_U6IkoY || https://www.javatpoint.com/collections-in-java
+- Generics - https://youtu.be/aXZrz8XKQpE || https://www.javatpoint.com/generics-in-java || https://youtu.be/K1iu1kXkVoA
 - Type Inference - https://www.javatpoint.com/java-type-inference-for-generics
 - Type Erasure - https://www.javatpoint.com/typeerasure-in-java
 - Autoboxing - https://www.javatpoint.com/autoboxing-and-unboxing

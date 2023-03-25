@@ -51,7 +51,7 @@ public class App {
 
 		//Suppose you want to use some methods of future but you don't want to return a result. Use wild card type (?) as the return type of Future and Void for return type of callable and simply return null.
 		/*
-		Future<?> future = future = executor.submit(new Callable<Void>() {
+		Future<?> future = executor.submit(new Callable<Void>() {
 			@Override
 			public Void call() throws Exception {
 				return null;

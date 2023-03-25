@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 // Countdown Latches: It lets you count down from the specified number.
+// Countdown latch is Thread safe. Meaning it can be accessed by multiple threads without worrying about Thread Synchronisation.
 /*
  * Count down latch makes one or more threads wait till the count down becomes 0.
  * 1 or more threads can count down the latch to 0 and then 1 or more threads that are waiting on the latch can carry on their tasks.

@@ -37,7 +37,7 @@ public class App {
 		
 		System.out.println("Press return to stop ...");
 		Scanner scanner = new Scanner(System.in);
-		scanner.nextLine(); //The main thread will pause here till we hit the return key
+		scanner.nextLine(); //The main thread will pause here till we hit the return key but the proc1 thread will keep on executing
 		
 		proc1.shutdown(); // Changing the value of running from the Main Thread
 		
