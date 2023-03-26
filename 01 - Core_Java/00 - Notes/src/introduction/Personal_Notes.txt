@@ -412,6 +412,7 @@ Links:
 - Data binding - https://www.javatpoint.com/static-binding-and-dynamic-binding
 - Runtime Polymorphism - https://www.javatpoint.com/runtime-polymorphism-in-java
 - Java toString() Method - https://www.javatpoint.com/understanding-toString()-method
+- Java equal() and hashCode()
 - Overriding equals method - https://www.geeksforgeeks.org/overriding-equals-method-in-java/
 - Instance Initializer Block - https://www.javatpoint.com/instance-initializer-block
 - Final Keyword - https://www.javatpoint.com/final-keyword
