@@ -142,6 +142,8 @@ STREAM API:
 - toArray()
 - Stream.of()
 
+=> Once a method is processed on a stream, that stream gets closed and cannot be used again. We need to create a new stream for this.
+
 => Misc:
 - Reduce - https://www.javatpoint.com/reduce-java
 
@@ -402,6 +404,16 @@ All Java programs have at least one thread, known as the main thread, which is c
 12. Callable and Future
 13. Interrupting Threads
 
+
+++++++++++++++++++++
+Internals:
+++++++++++++++++++++
+
+1. Dynamic Method Dispatcher - https://www.geeksforgeeks.org/dynamic-method-dispatch-runtime-polymorphism-java/
+2. How Multi-threading works internally in Java - https://www.digitalocean.com/community/tutorials/multithreading-in-java
+3. JVM internal architecture - https://www.javatpoint.com/jvm-java-virtual-machine
+4. Garbage Collection - https://www.javatpoint.com/Garbage-Collection
+
 ++++++++++++++++++++
 Links:
 ++++++++++++++++++++
@@ -565,6 +577,7 @@ Collections.reverseOrder() - Use this as the 2nd parameter to sort in reverse or
 Arrays.asList(a, b, c) - Created a List<> with elements a, b and c.
 Arrays.copyOfRange(nums1, 0, k)
 indexOf() - https://www.javatpoint.com/java-string-indexof
+List.of(a,b,c) - Creates Unmodifiable immutable list
 
 -----------
 More:

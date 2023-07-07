@@ -16,3 +16,5 @@ public interface CarInterface extends VehicleInterface{
 Marker Interface: A marker interface is an interface that has no methods or constants inside it. It provides run-time type information about objects, so the compiler and JVM have additional information about the object. 
 A marker interface is also called a tagging interface.
 */
+
+// Functions inside interfaces are abstract functions. We can use the abstract keyword infront of them if we wish to, but not needed.

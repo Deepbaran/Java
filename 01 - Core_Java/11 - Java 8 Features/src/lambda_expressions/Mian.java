@@ -36,7 +36,7 @@ public class Mian {
 		// Lambda is automatically returning a child of the MyInter interface [implementing it] while overwriting the single abstract method it had. This is the reason we need Functional Interface for Lambda nothing else.
 		// Lambda can ONLY be used for Functional Interface
 		// Using Lambda we are providing implementation for the abstract function in the interface.
-		// If two methods are there in the interface instead of two (Not a Funtional Interface) then we cannot use Lambda, we need to use anonymous class.
+		// If two methods are there in the interface instead of one (Not a Functional Interface) then we cannot use Lambda, we need to use anonymous class.
 		MyInter i = () -> {
 			System.out.println("this is the first time i am using lambda");
 		};
