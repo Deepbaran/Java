@@ -1,0 +1,66 @@
+server:
+  port: 8082
+
+# Tell Spring which profile to run manually
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 12345678
+    url: jdbc:mysql://localhost:3306/dcbapp
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+welcome:
+  message: Welcome to Daily Code Buffer!!!
+
+# Enabling default disabled endpoints of Spring Boot Actuator for dev profile
+# We can enable all the endpoints for JMX as well.
+# But for now we are enabling only for the Web
+# We are also excluding env and beans endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+---
+
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 12345678
+    url: jdbc:mysql://localhost:3306/dcbapp-qa
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+welcome:
+  message: Welcome to Daily Code Buffer!!!
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 12345678
+    url: jdbc:mysql://localhost:3306/dcbapp-prod
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+welcome:
+  message: Welcome to Daily Code Buffer!!!
