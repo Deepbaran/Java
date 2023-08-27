@@ -11,8 +11,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -52,14 +55,30 @@ class DepartmentControllerTest {
         Mockito.when(departmentService.saveDepartment(inputDepartment)).thenReturn(department);
 
         // Performing the endpoint call using our mocked mvc object
-        mockMvc.perform(post("/departments")
+        MvcResult result = mockMvc.perform(post("/departments")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\n" +
                         "    \"departmentName\": \"IT\",\n" +
                         "    \"departmentAddress\": \"Bangalore\",\n" +
                         "    \"departmentCode\": \"IT-06\"\n" +
                         "}"))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andReturn();
+        System.out.println(result.getResponse().getContentAsString());
+    }
+
+    @Test
+    void fetchDepartmentList() throws Exception {
+        Mockito.when(departmentService.fetchDepartmentList()).thenReturn(List.of(department));
+
+        // Performing the endpoint call using our mocked mvc object
+        MvcResult result = mockMvc.perform(
+                    get("/departments")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+        System.out.println(result.getResponse().getContentAsString());
+
     }
 
     @Test

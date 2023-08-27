@@ -12,13 +12,13 @@ spring:
   profiles: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    password: 12345678
     url: jdbc:mysql://localhost:3306/dcbapp
     username: root
+    password: 12345678
   jpa:
     hibernate:
       ddl-auto: update
-      show-sql: true
+      show-sql: true # To see the queries in the logs
 welcome:
   message: Welcome to Daily Code Buffer!!!
 
