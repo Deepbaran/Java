@@ -15,3 +15,13 @@
   - Durable (As Kafka is a distributed system, so the data is stored in multiple nodes and that increases the durability)
   - Scalable
 - Kafka Architecture:
+  - ![](/imgs/kafka2.PNG)
+  - Components:
+    - Producer: This is the component that publishes/produces/sends/writes the message/data in the Kafka.
+    - Consumer: This is the component that consumes/receives the data only if it has subscribed to it.
+    - Kafka Ecsystem: 
+      - Kafka Cluster: This contains Kafka Brokers/Kafka Servers. 
+        - Brokers: As Kafka is a distributed system, it can have multiple brokers. And as it's distributed, so it's nodes can be distributed multiple systems easily. Brokers have one/multiple Topics in them.
+          - Topics: Topics are the ones that store the messages/data. Just like we create tables inside databases to handle the data, similarly we have topics to handle data inside the brokers.Topics helps in storing and <em>categorizing</em> the data. For example, if some information regarding a User, Order and Logging is coming, then Kafka will categorize them and store thme inside User Topic, Order Topic and Logging Topic respectively. A Topic can have multple same category of messages. To manage them, we use Partitions inside Topics.
+            - Partition: Partition stores the message/data inside a Topic with the help of offsets.
+      - Zookeeper: This manages the state of Kafka/Kafka Brokers.
