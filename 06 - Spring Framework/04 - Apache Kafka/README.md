@@ -40,3 +40,8 @@
     >C:\kafka\kafka_2.13-3.6.0>bin\windows\kafka-console-producer.bat --topic user-topic --bootstrap-server localhost:9092
   - Consume message with kafka-console-consumer
     >C:\kafka\kafka_2.13-3.6.0>bin\windows\kafka-console-consumer.bat --topic user-topic --from-beginning --bootstrap-server localhost:9092
+- Block Diagram of the demo app:
+  - ![](/imgs/kafka3.PNG)
+  - There are two Microservices
+    - Delivery App Service (Producer)
+    - End User App Service (Consumer)
