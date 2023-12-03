@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class SimpleStack {
     /*
      * isEmpty
@@ -7,7 +10,7 @@ public class SimpleStack {
      * pop
      */
 
-    public static class SimpleStackUsingArray {
+    public class SimpleStackUsingArray {
         private int[] bucket;
         private int size;
         private int capacity;
@@ -64,7 +67,7 @@ public class SimpleStack {
         }
     }
 
-    public static class SimpleStackUsingLL {
+    public class SimpleStackUsingLL {
 
         private class Node {
             public int val;
@@ -115,6 +118,50 @@ public class SimpleStack {
             int val = this.head.val;
             this.head = this.head.next;
             return val;
+        }
+    }
+
+    public class SimpleStackUsingQueue {
+        private Queue<Integer> queue1;
+        private Queue<Integer> queue2;
+        private int size;
+
+        public SimpleStackUsingQueue() {
+            this.queue1 = new LinkedList<>();
+            this.size = 0;
+        }
+
+        public boolean isEmpty() {
+            return this.size == 0;
+        }
+
+        public int size() {
+            return this.size;
+        }
+
+        public int push(int val) {
+            // Fix the orientation of the values at the time of adding
+            // With this the other functions become straight forward
+
+            this.queue2 = new LinkedList<>();
+            queue2.add(val);
+            while (!queue1.isEmpty()) {
+                queue2.add(queue1.poll());
+            }
+            queue1 = queue2;
+            this.size++;
+            return val;
+        }
+
+        public int pop() {
+            if (this.isEmpty()) {
+                return -1;
+            }
+            return queue1.poll();
+        }
+
+        public int peek() {
+            return queue1.peek();
         }
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class SimpleQueue {
     /*
      * isEmpty
@@ -6,6 +8,8 @@ public class SimpleQueue {
      * add -> enQueue
      * poll -> deQueue
      */
+
+    // For a double ended queue (deque), implement it using a Doubly LinkedList
 
     public class SimpleQueueUsingArray {
         private int[] queue;
@@ -41,6 +45,8 @@ public class SimpleQueue {
         }
 
         public int add(int val) {
+            // Circular array implementation
+
             if (this.size == this.capacity) {
                 return -1;
             }
@@ -130,6 +136,56 @@ public class SimpleQueue {
             this.head = this.head.next;
             this.size--;
             return val;
+        }
+    }
+
+    public class SimpleQueueUsingStack {
+        private Stack<Integer> stack1;
+        private Stack<Integer> stack2;
+        private int size;
+
+        public SimpleQueueUsingStack() {
+            this.stack1 = new Stack<>();
+            this.size = 0;
+        }
+
+        public boolean isEmpty() {
+            return this.size == 0;
+        }
+
+        public int size() {
+            return this.size;
+        }
+
+        public int add(int val) {
+            // Fix the orientation of the values at the time of adding
+            // With this the other functions become straight forward
+
+            stack2 = new Stack<>();
+            while (!stack1.isEmpty()) {
+                stack2.add(stack1.pop());
+            }
+            stack2.add(val);
+            while (!stack2.isEmpty()) {
+                stack1.add(stack2.pop());
+            }
+            this.size++;
+            return val;
+        }
+
+        public int poll() {
+            if (this.isEmpty()) {
+                return -1;
+            }
+            this.size--;
+            return stack1.pop();
+        }
+
+        public int peek() {
+            if (this.isEmpty()) {
+                return -1;
+            }
+            return stack1.peek();
         }
     }
 }
