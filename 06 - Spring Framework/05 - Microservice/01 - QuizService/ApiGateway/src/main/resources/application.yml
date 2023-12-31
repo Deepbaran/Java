@@ -1,0 +1,28 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: API-GATEWAY
+# routes configuration
+  cloud:
+    gateway:
+      routes:
+      - id: QUIZ-SERVICE
+        uri: lb://QUIZ-SERVICE/ #This will load balance
+        predicates:
+        - Path=/quiz/** # We can add multiple paths here with comma separation for QUIZ-SERVICE
+      - id: QUESTION-SERVICE
+        uri: lb://QUESTION-SERVICE/
+        predicates:
+        - Path=/question/**
+    discovery:
+      enabled: true
+
+# Connect this eureka client with the eureka service registry
+eureka:
+  instance:
+    hostname: localhost
+    client:
+      serverUrl:
+        defaultZone: http://localhost:8761/eureka/

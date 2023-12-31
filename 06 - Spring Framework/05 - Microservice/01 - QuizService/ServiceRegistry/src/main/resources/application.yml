@@ -1,0 +1,12 @@
+server:
+  port: 8761 # Client will register with server on this port
+
+spring:
+  application:
+    name: SERVICE-REGISTRY
+
+# disable as client
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
