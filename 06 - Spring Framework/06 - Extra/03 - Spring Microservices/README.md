@@ -28,3 +28,14 @@
 4. Debugging Challenges - Each microservice has its own set of logs, which makes debugging more complicated. Plus, a single business process can run across multiple machines, further complicating debugging.
 5. Lack of Standardization - Without a common platform, there can be a proliferation of languages, logging standards, and monitoring.
 6. Lack of Clear Ownership - As more services are introduced, so are the number of teams running those services. Over time it becomes difficult to know the available services a team can leverage and who to contact for support.
+
+# Spring Cloud
+- It provides projects to quickly develop microservices.
+## Spring Cloud Projects
+1. Spring Cloud Open Feign
+2. Spring Cloud Netflix Eureka
+3. Spring Cloud Load Balancer
+4. Spring Cloud API Gateway
+5. Fault Tolerance
+6. Sleuth and Zipkin
+7. Config Server
